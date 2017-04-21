@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ObserverPatternTut.Observer;
+using ObserverPatternTut.Subject;
+using System;
 
 namespace ObserverPatternTut
 {
@@ -10,6 +8,16 @@ namespace ObserverPatternTut
     {
         static void Main(string[] args)
         {
+            var channel = new YoutueChannel();
+            var michel = new User();
+            var moderator = new Moderator();
+
+            channel.Subscriber(michel);
+            channel.Subscriber(moderator);
+
+            channel.NotifyAll();
+
+            Console.Read();
         }
     }
 }

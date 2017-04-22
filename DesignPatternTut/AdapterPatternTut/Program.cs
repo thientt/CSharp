@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using AdapterPatternTut.Adaptor;
+using System;
 
 namespace AdapterPatternTut
 {
@@ -9,6 +7,11 @@ namespace AdapterPatternTut
     {
         public static void Main(string[] args)
         {
+            UsbAdapter usb = new UsbAdapter();
+            usb.ConnectUsbPort();
+            Console.WriteLine("Got the signal!");
+
+            Console.Read();
         }
     }
 }

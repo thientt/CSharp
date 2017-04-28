@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{948082AD-003A-4932-880E-3B8B1A30B64F}</ProjectGuid>
+    <ProjectGuid>{D05A9070-377E-4AB1-8DB9-853D0E22EFC6}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StrategyPatternTut</RootNamespace>
-    <AssemblyName>StrategyPatternTut</AssemblyName>
+    <RootNamespace>StrategyPatternTut.Sample02</RootNamespace>
+    <AssemblyName>StrategyPatternTut.Sample02</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Faker.NET4, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Faker.Net.1.0.3\lib\net40\Faker.NET4.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,14 +47,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Axe.cs" />
-    <Compile Include="IWeapon.cs" />
+    <Compile Include="Entities\Address.cs" />
+    <Compile Include="Concrete\FedexShippingStrategy.cs" />
+    <Compile Include="Concrete\SchenkerShippingStrategy.cs" />
+    <Compile Include="Concrete\UpsShippingStrategy.cs" />
+    <Compile Include="Entities\Order.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sword.cs" />
+    <Compile Include="Services\ShippingCostCalculationService.cs" />
+    <Compile Include="Strategy\IShippingStrategy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
